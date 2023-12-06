@@ -1,0 +1,7 @@
+1. Users -active inactive button
+2. Admin - forgot password ,reset password done.
+3. Subadmin - phone Number missing.
+
+4. Organizer- transaction view, organizer view and edit.
+
+
