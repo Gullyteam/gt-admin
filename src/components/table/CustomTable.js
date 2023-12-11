@@ -1,22 +1,33 @@
-import React, { useRef } from 'react'
-import { Typography, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, Paper } from '@mui/material';
-import { useSelector, useDispatch } from 'react-redux'
+import React, { useRef,useState,useEffect} from 'react'
+import { TablePagination, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, Paper } from '@mui/material';
+import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router';
 import { divide } from 'lodash';
 import CustomButton from './CustomButton';
 import { IconH1 } from '@tabler/icons';
  import CustomModal from './CustomModal';
 
-const CustomTable = (data, loading) => {
+const CustomTable = ( data, loading) => {
   const CustomTablecontainer = useRef();
+
+  const { onPageChange } = data;
+
   //s3 bucket url
   const S3bucketUrl=process.env.REACT_APP_PROFILE_S3_BUCKET_URL;
 
-console.log(data);
   const { url } = useSelector((state) => state.home)
-
   const navigate = useNavigate();
+  const [currentPage, setCurrentPage] = useState(1); // Initialize currentPage state
+  const [pagecount, setPageCount] = useState(1);
 
+
+  // useEffect(() => {
+  //   setPageCount(data===undefined ? 1:data?.totalcount?.length);
+  // }, [data])
+
+  // console.log(data?.totalcount);
+
+  
   return (
     <>
 
@@ -82,6 +93,18 @@ console.log(data);
         </Table>
         
       </TableContainer>
+      <TablePagination
+        rowsPerPageOptions={[2, 10, 25, 50]}
+        component="div"
+        count={data===undefined ? 1:data?.totalcount || 0}
+        rowsPerPage={2}
+        page={currentPage}
+        onPageChange={(event, newPage) => {
+          setCurrentPage(newPage);
+          onPageChange(newPage); // Pass 0-based page to the parent component
+        }}
+      />
+
     </>
   )
 }

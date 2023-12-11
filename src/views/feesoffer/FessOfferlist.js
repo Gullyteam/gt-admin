@@ -2,19 +2,34 @@ import React from 'react';
 import { Typography} from '@mui/material';
 import PageContainer from 'src/components/container/PageContainer';
 import DashboardCard from '../../components/shared/DashboardCard';
- import { useState } from 'react';
+ import { useState,useEffect} from 'react';
 import useFetchAnother from 'src/hooks/useFetchAnother';
 import CustomTable from 'src/components/table/CustomTable';
 import FessOfferComponent from 'src/components/forms/theme-elements/feesoffer/FessOfferComponent'
 
 const FessOffer = () => {
+  const rowsPerPage=2;
+  //usestate for the pagination table
+  const [currentPage, setCurrentPage] = useState(1); // Initial page
+
     // fetch all users data from  
-    const { data,loading }= useFetchAnother(`/admin/fessoffer`);
+    const { data,loading }= useFetchAnother(`/admin/fessoffer?page=${currentPage + 1}&pageSize=${rowsPerPage}`);
 
 
     const tableTitle =[{title:"Fees"},{title:"Offer"},{title:"FinalPrice"},{title:"Action"}]
 
     const tableBody =[{field:"fess"},{field:"offer"},{field:"finalPrice"}]
+
+    useEffect(() => {
+      // Call your API here using the currentPage value
+      // Update the state with the fetched data
+      // const { data, loading } = useFetch(`/admin`);
+      //console.log("hello world",currentPage);
+    }, [currentPage, data, loading]);
+  
+    const handlePageChange = (newPage) => {
+      setCurrentPage(newPage);
+    };
 
   return (
     <PageContainer title="Sample Page" description="this is Sample page" >
@@ -23,7 +38,7 @@ const FessOffer = () => {
      
         <Typography>Fess And Offer</Typography>
 
-        <CustomTable data={data?.data} loading={loading} tableTitle={tableTitle} tableBody={tableBody} editoption={true} />
+        <CustomTable data={data?.data} totalcount={data?.count} loading={loading} tableTitle={tableTitle} tableBody={tableBody} editoption={true} onPageChange={handlePageChange} />
         
       </DashboardCard>
     </PageContainer>

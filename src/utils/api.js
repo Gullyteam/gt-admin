@@ -1,7 +1,7 @@
  import axios from "axios";
 
 // base url of a api 
- const BASE_URL = 'http://35.154.6.204:3000';
+ const BASE_URL = 'http://localhost:5000';
 
  //api token
  const Auth_TOKEN = localStorage.getItem('authToken');
