@@ -40,9 +40,6 @@ export const fetchDataFromApi = async(url) => {
 
  }
 
- 
-
-
   export const addDataUsingApi = async(url,data) => {
      try{
            return {data} =  await axios.post(BASE_URL+url,data,{

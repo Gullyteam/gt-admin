@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Typography, Modal, Button, Box, Stack, InputLabel, styled, Paper, MenuItem, Select } from '@mui/material';
-import { editDataUsingApiputmethod } from 'src/utils/api';
+import { addDataUsingApi } from 'src/utils/api';
 import { useNavigate, useParams } from 'react-router-dom';
 
 //import Usestate
@@ -30,7 +30,21 @@ const style = {
 
 const CustomModal = (data) => {
 
-    console.log(data.status);
+    let backgroundColor, textColor, borderRadius;
+
+  if (data.status === 'ban') {
+    backgroundColor = '#d41717';
+  } else if (data.status === 'active') {
+    backgroundColor = '#59ce59';
+  } else if (data.status === 'inactive') {
+    backgroundColor = '#ff661a';
+  }
+
+  const buttonStyle = {
+    color: 'white',
+    borderRadius:'10px',
+    backgroundColor,
+  };
 
     const navigate = useNavigate();
 
@@ -59,10 +73,15 @@ const CustomModal = (data) => {
         
     };
 
+    const sendDataToParent = () => {
+        const Data = 'Data from CustomModel';
+        data.onData(Data); // Calling the callback function to send data to parent
+      };
+
  
     const actionUser = async (userAction) => {
         console.log(userAction)
-        editDataUsingApiputmethod(`/admin-users/${data.id}`, userAction)
+        addDataUsingApi(`/admin/editUserStatus/${data.id}`, userAction)
                 .then((res) => {
                     console.log("hello:::",res.data)
                     setOpen(false)
@@ -75,7 +94,7 @@ const CustomModal = (data) => {
 
     return (
         <div>
-            <Button onClick={handleOpen}>{data.status}</Button>
+            <Button onClick={handleOpen} style={buttonStyle}>{data.status}</Button>
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -117,7 +136,7 @@ const CustomModal = (data) => {
                                         fullWidth
                                     >
                                         <MenuItem value={'24hr'}>24hr</MenuItem>
-                                        <MenuItem value={'1day'}>1day</MenuItem>
+                                        <MenuItem value={'7day'}>7day</MenuItem>
                                         <MenuItem value={'1month'}>1month</MenuItem>
                                     </Select>
                                 </Item>
@@ -127,9 +146,7 @@ const CustomModal = (data) => {
                         }
                           <Item ><Button variant="contained" type="submit">Submit</Button></Item>
                          
-                        
-                       
-                        
+                          {/* <button onClick={sendDataToParent}>Send Data to Users</button> */}
                     </Box>
                 </form>
             </Modal>

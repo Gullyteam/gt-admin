@@ -6,17 +6,14 @@ import ToggleOff from '@mui/icons-material/ToggleOff';
 import { NavLink } from 'react-router-dom';
 
 
-
-
 const CustomButton = (id) => {
   
     
-
     return (
-        <Stack direction="row" spacing={2}>
+        <Stack direction="row" spacing={4} style={{ margin: '10px 0px' }}>
             <NavLink style={{color:"#4570ea"}} to={'view/'+id.id}><VisibilityIcon/></NavLink>
             <NavLink style={{color:"#39d4de"}} to={'edit/'+id.id}><EditIcon/></NavLink>
-            <NavLink style={{color:"#fb6090"}} to={'delete/'+id.id}><ToggleOff/></NavLink>
+            {/* <NavLink style={{color:"#fb6090"}} to={'delete/'+id.id}><ToggleOff/></NavLink> */}
         </Stack>
     )
 }

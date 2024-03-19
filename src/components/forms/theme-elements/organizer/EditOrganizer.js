@@ -2,7 +2,7 @@ import React from 'react'
 //import Usestate
 import { useState, useEffect } from 'react';
 import { styled, Paper, Button, Grid, TextField } from '@mui/material';
-import { editDataUsingApi,deleteDataUsingApi } from 'src/utils/api';
+import { addDataUsingApi,deleteDataUsingApi } from 'src/utils/api';
 import { useNavigate, useParams } from 'react-router-dom';
 
 //Styling Of Item Component
@@ -23,14 +23,20 @@ const OrganizerForm = (data) => {
 
     //Form Intial Value
     const intialvalue = {
-        name: "",
-        contact: "",
-        email: "",
-        location: "",
-        game_name: "",
-        tournament_name: "",
-        tournament_location: "",
-        tournament_fees: ""
+        tournamentName: "",
+        ballCharges: "",
+        ballType: "",
+        fees: "",
+        pitchType: "",
+        matchType: "",
+        breakfastCharges: "",
+        latestLocation: "",
+        stadiumAddress: "",
+        tournamentCategory: "",
+        tournamentStartDateTime: "",
+        tournamentEndDateTime: "",
+        tournamentLimit: "",
+        tournamentPrize: ""
     }
 
 
@@ -43,20 +49,19 @@ const OrganizerForm = (data) => {
         setorganizer({ ...organizer, [e.target.name]: e.target.value })
     }
 
-
-
     // Use useEffect to set organizer data when data becomes available
     useEffect(() => {
         if (data?.data?.data) {
             setorganizer(data.data.data);
+          
         }
     }, [data]);
 
 
     const editOrganizerData = async () => {
-        editDataUsingApi(`/organizer/${id}`, organizer)
+        addDataUsingApi(`/admin/updateTournamentById/${id}`, organizer)
             .then((res) => {
-                navigate('/organizer');
+                //navigate('/organizer');
             });
     }
 
@@ -83,7 +88,8 @@ const OrganizerForm = (data) => {
                                     id="outlined-required"
                                     helperText={formitem?.helperText}
                                     name={formitem?.name}
-                                    value={organizer[formitem.name]}
+                                    type={formitem?.type}
+                                    value={organizer[formitem.name] || ""}
                                     onChange={(e) => onValueChange(e)}
                                 />
 

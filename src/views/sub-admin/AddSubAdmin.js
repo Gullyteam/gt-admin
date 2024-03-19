@@ -20,7 +20,7 @@ const AddSubAdmin = (action) => {
     { helperText: "Please Add Password Here", name: "password",type:"password" },
     { helperText: "Please Add FirstName Here", name: "firstname",type:"text" },
     { helperText: "Please Add LastName Here", name: "lastname",type:"text" },
-    { helperText: "Please Add Contact Number Here", name:"phone" },
+    { helperText: "Please Add Contact Number Here", name:"phoneNumber",type:"tel" },
    
     
   ]

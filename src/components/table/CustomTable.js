@@ -6,6 +6,7 @@ import { divide } from 'lodash';
 import CustomButton from './CustomButton';
 import { IconH1 } from '@tabler/icons';
  import CustomModal from './CustomModal';
+ import moment from 'moment';
 
 const CustomTable = ( data, loading) => {
   const CustomTablecontainer = useRef();
@@ -25,7 +26,7 @@ const CustomTable = ( data, loading) => {
   //   setPageCount(data===undefined ? 1:data?.totalcount?.length);
   // }, [data])
 
-  // console.log(data?.totalcount);
+//  console.log(data);
 
   
   return (
@@ -33,12 +34,12 @@ const CustomTable = ( data, loading) => {
 
       <TableContainer component={Paper}  >
         <Table>
-          <TableHead>
-            <TableRow>
+          <TableHead >
+            <TableRow style={{ borderBottom: '2px solid #adb1b8' }}>
               {
                 data.tableTitle?.map((item, index) => {
                   return (
-                    <TableCell key={index}>{item.title}</TableCell>
+                    <TableCell  key={index}>{item.title}</TableCell>
                   )
                 })
               }
@@ -50,16 +51,25 @@ const CustomTable = ( data, loading) => {
             <TableBody>
               {
 
-               data?.data?.map((item) => {
+               data?.data?.map((item,index) => {
+                const serialNumber = index + 1;  // Calculate the serial number (1-indexed)
                   return (
-                    <TableRow key={item.id} >
+                    <TableRow key={item.id} style={{ borderBottom: '2px solid #d7dce5' }}>
+                      <TableCell>{serialNumber}</TableCell>
                       {
                         data.tableBody?.map((fielditem) => {
-
-                          if(fielditem.field==='profilePhoto'){
+ 
+                          if(fielditem.field==='profilePhoto'||fielditem.field==='imageUrl'){
                             return (
                               <TableCell>
                                 <img src={S3bucketUrl+item[fielditem.field]} style={{width:"60px",height:"60px"}}/>
+                              </TableCell>
+                            )
+                          }
+                          else if(fielditem.field==='registrationDate' ||  fielditem.field==='date' || fielditem.field==='updatedAt'){
+                            return (
+                              <TableCell >
+                                {moment(item[fielditem.field]).format('YYYY-MM-DD  HH:mm')}
                               </TableCell>
                             )
                           }
@@ -69,7 +79,9 @@ const CustomTable = ( data, loading) => {
                                      <CustomModal id={item?._id} status={item[fielditem.field]} />
                                     </TableCell>
                             )
+                            
                           }
+                        
                           else{
                             return (
                               <TableCell>
@@ -97,7 +109,7 @@ const CustomTable = ( data, loading) => {
         rowsPerPageOptions={[2, 10, 25, 50]}
         component="div"
         count={data===undefined ? 1:data?.totalcount || 0}
-        rowsPerPage={2}
+        rowsPerPage={10}
         page={currentPage}
         onPageChange={(event, newPage) => {
           setCurrentPage(newPage);
@@ -108,5 +120,7 @@ const CustomTable = ( data, loading) => {
     </>
   )
 }
+
+
 
 export default CustomTable

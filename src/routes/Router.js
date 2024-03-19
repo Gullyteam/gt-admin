@@ -20,6 +20,9 @@ const OrganizerList = Loadable(lazy(() => import('../views/organizer/OrganizerLi
 const Organizer = Loadable(lazy(() => import('../views/organizer/Organizer')))
 const AddOrganizer = Loadable(lazy(() => import('../views/organizer/AddOrganizer')))
 
+
+const Tournament = Loadable(lazy(() => import('../views/organizer/Tournament')))
+
 /* **** Sub Admin Pages***** */
 const SubAdminList = Loadable(lazy(() => import('../views/sub-admin/SubAdminList')))
  const SubAdmin = Loadable(lazy(() => import('../views/sub-admin/SubAdmin')))
@@ -32,10 +35,29 @@ const EditContent = Loadable(lazy(() => import('../views/contentmanager/EditCont
 /* **** Add Sports Pages***** */
 const AddSport = Loadable(lazy(() => import('../views/addsports/AddSport')))
 
+/* **** Fess and Offer Pages***** */
 const FeesOffer = Loadable(lazy(() => import('../views/feesoffer/FessOfferlist')))
 const AddFeesOffer = Loadable(lazy(() => import('../views/feesoffer/AddFessoffer')))
 const EditFeesOffer = Loadable(lazy(() => import('../views/feesoffer/FessOffer')))
 
+/* **** Fess and Offer Pages***** */
+const HelpDesk =Loadable(lazy(() => import('../views/helpdesk/Helpdesklist')))
+const EditHelpDesk =Loadable(lazy(() => import('../views/helpdesk/HelpDesk')))
+
+/* **** Notification ******/
+const Notificationlist =Loadable(lazy(() => import('../views/notification/Notificationlist')))
+const Add_Notification =Loadable(lazy(() => import('../views/notification/AddNotification')))
+const Notification =Loadable(lazy(() => import('../views/notification/Notification')))
+
+/* **** Banner ******/
+const Bannerlist =Loadable(lazy(() => import('../views/banner/Bannerlist')))
+const Add_Banner =Loadable(lazy(() => import('../views/banner/AddBanner')))
+const Banner =Loadable(lazy(() => import('../views/banner/Banner')))
+
+/* **** ScoreBoard ******/
+const ScoreBoardlist =Loadable(lazy(() => import('../views/scoreBoard/TournamentList')))
+const MatchesList =Loadable(lazy(() => import('../views/scoreBoard/MatchesList')))
+const ScoreBoard =Loadable(lazy(() => import('../views/scoreBoard/ScoreBoard')))
 
 const Icons = Loadable(lazy(() => import('../views/icons/Icons')))
 const TypographyPage = Loadable(lazy(() => import('../views/utilities/TypographyPage')))
@@ -76,6 +98,8 @@ const Router = [
       { path: '/organizer/edit/:id', exact: true, element: <PrivateRoute path="/sample-page" element={<Organizer action={"edit"} />} />  },
       { path: '/organizer/delete/:id', exact: true, element: <PrivateRoute path="/sample-page" element={<Organizer action={"delete"} />} />  },
     
+      { path: '/tournament', exact: true, element: <Tournament /> },
+
       /* **** Sub Admin Pages***** */
       { path: '/subadmin', exact: true, element: <PrivateRoute path="/subadmin" element={<SubAdminList />} />  },
       { path: '/subadmin/add', exact: true, element: <PrivateRoute path="/sample-page" element={<AddSubAdmin/>} /> },
@@ -97,6 +121,28 @@ const Router = [
       { path: '/fessoffer/view/:id', exact: true, element: <EditFeesOffer action={"view"}/> },
       { path: '/fessoffer/edit/:id', exact: true, element: <EditFeesOffer action={"edit"}/> },
       // { path: '/fessoffer/delete/:id', exact: true, element: <FeesOffer /> },
+
+       /* **** Helpdesk Pages***** */
+       { path: '/helpdesk', exact: true, element: <HelpDesk /> },
+       { path: '/helpdesk/view/:id', exact: true, element: <EditHelpDesk action={"view"}/> },
+      { path: '/helpdesk/edit/:id', exact: true, element: <EditHelpDesk action={"edit"}/> },
+
+      /* **** Notification  Pages***** */
+      { path: '/notification', exact: true, element: <Notificationlist /> },
+      { path: '/notification/add', exact: true, element: <Add_Notification action={"add"}/> },
+      { path: '/notification/view/:id', exact: true, element: <Notification action={"view"}/> },
+      { path: '/notification/edit/:id', exact: true, element: <Notification action={"edit"}/> },
+
+       /* **** Banner  Pages***** */
+       { path: '/banner', exact: true, element: <Bannerlist /> },
+       { path: '/banner/add', exact: true, element: <Add_Banner action={"add"}/> },
+       { path: '/banner/view/:id', exact: true, element: <Banner action={"view"}/> },
+       { path: '/banner/edit/:id', exact: true, element: <Banner action={"edit"}/> },
+
+        /* **** ScoreBoard  Pages***** */
+        { path: '/scoreBoard', exact: true, element: <ScoreBoardlist /> },
+        { path: '/scoreBoard/:id', exact: true, element: <MatchesList /> },
+        { path: '/scoreBoardData/:id', exact: true, element: <ScoreBoard /> },
 
       { path: '/icons', exact: true, element: <Icons /> },
       { path: '/ui/typography', exact: true, element: <TypographyPage /> },

@@ -1,3 +1,4 @@
+
 import React, { useRef, useState } from 'react'
 import { TablePagination, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, Paper } from '@mui/material';
 import { useSelector } from 'react-redux'
@@ -8,7 +9,7 @@ import moment from 'moment';
 
 
 
-const OrganizerTable = (data, loading) => {
+const ScoreBoardtable = (data, loading) => {
 
   const { onPageChange } = data;
   const { url } = useSelector((state) => state.home)
@@ -47,13 +48,7 @@ const OrganizerTable = (data, loading) => {
                       {
                         data.tableBody?.map((fielditem) => {
 
-                          if (fielditem.field === 'paymentView') {
-                            return (
-                              <TableCell>
-                                <NavLink  to={'/payment'}>Payment</NavLink>
-                              </TableCell>
-                            )
-                          }else if (fielditem.field === 'tournamentStartDateTime' || fielditem.field === 'tournamentEndDateTime') {
+                           if (fielditem.field === 'tournamentStartDateTime' || fielditem.field === 'tournamentEndDateTime') {
                             return (
                               <TableCell>
                                 {moment(item[fielditem.field]).format('YYYY-MM-DD  HH:mm')}
@@ -70,7 +65,12 @@ const OrganizerTable = (data, loading) => {
                         })
 
                       }
-                      {data?.editoption?(<CustomButton id={item?._id} />):("")}
+                       console
+                              <TableCell>
+                                <NavLink  to={item._id}>View </NavLink>
+                              </TableCell>
+                         
+                      {/* {data?.editoption?(<CustomButton id={item?._id} />):("")} */}
                     </TableRow>
 
                   )
@@ -98,4 +98,4 @@ const OrganizerTable = (data, loading) => {
 
 }
 
-export default OrganizerTable
+export default ScoreBoardtable

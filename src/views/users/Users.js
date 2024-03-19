@@ -8,23 +8,17 @@ import CustomTable from 'src/components/table/CustomTable';
 
 const Users = () => {
 
-  const rowsPerPage=2;
+  const rowsPerPage=process.env.REACT_APP_ROWS_PER_PAGE;
   //usestate for the pagination table
-  const [currentPage, setCurrentPage] = useState(1); // Initial page
+  const [currentPage, setCurrentPage] = useState(2); // Initial page
 
     // fetch all users data from  
-    const { data,loading }= useFetch(`/admin/all-users?page=${currentPage + 1}&pageSize=${rowsPerPage}`);
+    const { data,loading }= useFetch(`/admin/getAllUser/${currentPage}/${rowsPerPage}`);
 
-    // useEffect(() => {
-    //   setUserData(data);
-    // }, [data])
   
-    // const handleSubmit = (objRow) => {
-    //   setUserData(data?.data?.data?.map(obj => obj.id === objRow.id : {...obj, status: obj.objRow}));
-    // }
-    const tableTitle =[{title:"User Id"},{title:"Image"},{title:"Name"},{title:"Email"},{title:"Phone"},{title:"Location"},{title:"Registration Date"},{title:"Status"}]
+    const tableTitle =[{title:"Sr.No."},{title:"User Id"},{title:"Image"},{title:"Name"},{title:"Email"},{title:"Phone"},{title:"Location"},{title:"Registration_Date"},{title:"Status"}]
 
-    const tableBody =[{field:"_id"},{field:"profilePhoto"},{field:"fullName"},{field:"email"},{field:"phoneNumber"},{field:"location"},{field:"registrationDate"},{field:"banStatus"},]
+    const tableBody =[{field:"_id"},{field:"profilePhoto"},{field:"fullName"},{field:"email"},{field:"phoneNumber"},{field:"locations"},{field:"registrationDate"},{field:"banStatus"},]
 
     useEffect(() => {
       // Call your API here using the currentPage value
@@ -37,7 +31,12 @@ const Users = () => {
       setCurrentPage(newPage);
     };
 
-console.log(data?.data)
+    const handleDataFromModel=(Data)=>{
+      console.log(Data);
+    }
+
+
+
   return (
     <PageContainer title="Sample Page" description="this is Sample page" >
 
@@ -45,7 +44,7 @@ console.log(data?.data)
      
         <Typography>Users Page</Typography>
 
-        <CustomTable data={data?.data} totalcount={data?.count} loading={loading} tableTitle={tableTitle} tableBody={tableBody} editoption={false} onPageChange={handlePageChange} />
+        <CustomTable data={data?.data} totalcount={data?.count} loading={loading} tableTitle={tableTitle} tableBody={tableBody} editoption={false} onPageChange={handlePageChange} onData={handleDataFromModel}  />
         
       </DashboardCard>
     </PageContainer>

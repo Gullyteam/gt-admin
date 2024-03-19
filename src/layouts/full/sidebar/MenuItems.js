@@ -33,12 +33,12 @@ const Menuitems = [
     icon: IconAB2 ,
     href: '/organizer',
   },
-  {
-    id: uniqueId(),
-    title: 'Add Sports',
-    icon: IconOlympics ,
-    href: '/addsports',
-  },
+  // {
+  //   id: uniqueId(),
+  //   title: 'Add Sports',
+  //   icon: IconOlympics ,
+  //   href: '/addsports',
+  // },
   {
     id: uniqueId(),
     title: 'Sub Admin',
@@ -55,7 +55,7 @@ const Menuitems = [
     id: uniqueId(),
     title: 'Notification',
     icon: IconBellRinging2 ,
-    href: '/ui/typography',
+    href: '/notification',
   },
   {
     id: uniqueId(),
@@ -67,7 +67,7 @@ const Menuitems = [
     id: uniqueId(),
     title: 'HelpDesk',
     icon: IconPhoneCall,
-    href: '/ui/typography',
+    href: '/helpdesk',
   },
   {
     id: uniqueId(),
@@ -77,49 +77,49 @@ const Menuitems = [
   },
   {
     id: uniqueId(),
-    title: 'typography',
+    title: 'ScoreBoard',
     icon: IconTypography,
-    href: '/ui/typography',
+    href: '/scoreBoard',
   },
  
   {
     id: uniqueId(),
-    title: 'Shadow',
+    title: 'Banner',
     icon: IconCopy,
-    href: '/ui/shadow',
+    href: '/banner',
   },
-  {
-    navlabel: true,
-    subheader: 'Auth',
-  },
-  {
-    id: uniqueId(),
-    title: 'Login',
-    icon: IconLogin,
-    href: '/auth/login',
-  },
-  {
-    id: uniqueId(),
-    title: 'Register',
-    icon: IconUserPlus,
-    href: '/auth/register',
-  },
-  {
-    navlabel: true,
-    subheader: 'Extra',
-  },
-  {
-    id: uniqueId(),
-    title: 'Icons',
-    icon: IconMoodHappy,
-    href: '/icons',
-  },
-  {
-    id: uniqueId(),
-    title: 'Sample Page',
-    icon: IconAperture,
-    href: '/sample-page',
-  },
+  // {
+  //   navlabel: true,
+  //   subheader: 'Auth',
+  // },
+  // {
+  //   id: uniqueId(),
+  //   title: 'Login',
+  //   icon: IconLogin,
+  //   href: '/auth/login',
+  // },
+  // {
+  //   id: uniqueId(),
+  //   title: 'Register',
+  //   icon: IconUserPlus,
+  //   href: '/auth/register',
+  // },
+  // {
+  //   navlabel: true,
+  //   subheader: 'Extra',
+  // },
+  // {
+  //   id: uniqueId(),
+  //   title: 'Icons',
+  //   icon: IconMoodHappy,
+  //   href: '/icons',
+  // },
+  // {
+  //   id: uniqueId(),
+  //   title: 'Sample Page',
+  //   icon: IconAperture,
+  //   href: '/sample-page',
+  // },
 ];
 
 export default Menuitems;

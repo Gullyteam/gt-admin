@@ -15,7 +15,7 @@ const Content = () => {
         id: 1,
         title: 'Terms & Conditions',
         status: 'actve',
-        _id:'terms-condition'
+        _id:'terms'
     },
     {
         id: 2,

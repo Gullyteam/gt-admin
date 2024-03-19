@@ -32,13 +32,16 @@ const Login2 = () => {
             localStorage.setItem('authToken',token)
             localStorage.setItem('email',res?.data?.data?.email)
             localStorage.setItem('role',res?.data?.data?.role)
+            console.log(res);
             navigate('/dashboard');
-
-          }else{
-            toast.error("Something went wrong");
           }
-      });
+          //console.log("then",res?.response?.data?.message);
+          toast.error(res?.response?.data?.message ? res?.response?.data?.message : "Something Went Wrong");
+      })
   };
+
+
+
 
   //UseState For store Form Data
   const [logindata, setlogindata] = useState(intialvalue);

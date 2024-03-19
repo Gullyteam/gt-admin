@@ -116,7 +116,7 @@ const EditSubAdmin = (data) => {
     console.log(subadmin)
 
     const editSubAdminData = async () => {
-        addDataUsingApi('/admin/add-member', subadmin)
+        addDataUsingApi(`/admin/editSubAdmin/${id}`, subadmin)
                 .then((res) => {
                     console.log(res.data)
                     //navigate('/subadmin');

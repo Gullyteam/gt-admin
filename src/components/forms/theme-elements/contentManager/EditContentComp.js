@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // Import the styles
-import { addDataUsingApi, editDataUsingApiputmethod } from 'src/utils/api';
+import { addDataUsingApi } from 'src/utils/api';
 import { useNavigate, useParams } from 'react-router-dom';
 import { styled, Paper, Button, Grid, TextField } from '@mui/material';
 
@@ -37,7 +37,7 @@ console.log(data)
     // Check if data is available and set the editorHtml accordingly
     if (data && data.data && data.data.status === true) {
       // Use the message from the API as the initial content
-      setEditorHtml(data.data.data.contenttext);
+      setEditorHtml(data.data.data.content);
     }
   }, [data]);
 
@@ -49,7 +49,7 @@ console.log(data)
         status:"active"
       }
       console.log(contentdata);
-      editDataUsingApiputmethod(`/admin/${id}`, contentdata)
+      addDataUsingApi(`/admin/updateContent/${id}`, contentdata)
         .then((res) => {
           // console.log(res.data)
           navigate('/content');

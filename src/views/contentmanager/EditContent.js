@@ -17,7 +17,7 @@ const EditContent = (action) => {
     const action_status= action?.action;
     
     
-    const { data,loading }= useFetchAnother(`/admin/${id}`);
+    const { data,loading }= useFetchAnother(`/admin/getContent/${id}`);
     
    
       const Formdata = [

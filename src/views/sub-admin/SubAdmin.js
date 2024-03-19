@@ -17,13 +17,13 @@ const SubAdmin = (action) => {
 
     const action_status= action?.action;
 
-    const { data,loading }= useFetch(`/admin/subadmin/${id}`);
+    const { data,loading }= useFetch(`/admin/getSubAdminById/${id}`);
 
     const Formdata = [
         { helperText: "Please Add Email Here", name:"email"  },
         { helperText: "Please Add Firstname Here", name:"firstname"  },
         { helperText: "Please Add LastName Here", name:"lastname" },
-        { helperText: "Please Add Contact Number Here", name:"phone" },
+        { helperText: "Please Add Contact Number Here", name:"phoneNumber" },
 
         
       ]

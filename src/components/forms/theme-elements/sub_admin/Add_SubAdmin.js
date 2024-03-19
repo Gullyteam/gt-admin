@@ -48,6 +48,9 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const Add_SubAdmin = (data) => {
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+   
+
     //Intiate Navigate
     let navigate = useNavigate();
     const { id } = useParams();
@@ -82,27 +85,53 @@ const Add_SubAdmin = (data) => {
     };
 
     useEffect(() => {
-        setsubadmin({ ...subadmin, 'rights': adminRights })   
-    
+        setsubadmin({ ...subadmin, 'rights': adminRights })
+
     }, [adminRights])
-    
+
 
     //For Data Insert in to Variable comming fromdata.
     const onValueChange = (e) => {
-            setsubadmin({ ...subadmin, [e.target.name]: e.target.value })       
+        setsubadmin({ ...subadmin, [e.target.name]: e.target.value })
     }
 
 
     const addsubadminData = async () => {
-        if (subadmin.email !== "" && subadmin.password !== "" && subadmin.role !== "" && subadmin.rights && Array.isArray(subadmin.rights) && subadmin.rights.length > 0) {
-            addDataUsingApi('/admin/add-member', subadmin)
-                .then((res) => {
-                    console.log(res.data)
-                    navigate('/subadmin');
-
-                });
+        if (subadmin.email !== "" &&
+            emailRegex.test(subadmin.email) && // Validate email
+            subadmin.password !== "" &&
+            subadmin.phonenumber !== "" &&
+           
+            subadmin.role !== "" &&
+            subadmin.rights &&
+            Array.isArray(subadmin.rights) &&
+            subadmin.rights.length > 0) 
+            {
+                try {
+                    const res = await addDataUsingApi('/admin/addSubAdmin', subadmin);
+                    if (res.data.status === true) {
+                        console.log(res.data);
+                       navigate('/subadmin');
+                    } else {
+                        toast.error(res.data.error || "Server error");
+                    }
+                } catch (error) {
+                    //console.error("API request failed:", error);
+                    console.log("errrrrr",error.message);
+                    toast.error("Failed to communicate with the server");
+                    // console.log("error",error);
+                }
         } else {
-            toast.error("Please fill data correctly");
+            let errorMessage = "Please fill data correctly";
+
+        if (subadmin.email === "" || !emailRegex.test(subadmin.email)) {
+            errorMessage = "Please enter a valid email address";
+        }else if (subadmin.firstname === "") {
+            errorMessage = "Please enter First Name";
+        }else if (subadmin.password === "" ) {
+            errorMessage = "Please enter a Password number";
+        }
+            toast.error(errorMessage);
         }
 
     }

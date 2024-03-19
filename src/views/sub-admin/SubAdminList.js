@@ -8,7 +8,7 @@ import CustomTable from 'src/components/table/CustomTable';
 
 const SubAdmin = () => {
 
-  const rowsPerPage=2;
+  const rowsPerPage=process.env.REACT_APP_ROWS_PER_PAGE;
   //usestate for the pagination table
   const [currentPage, setCurrentPage] = useState(1); // Initial page
 
@@ -27,11 +27,11 @@ const SubAdmin = () => {
       { field: "firstname" },
       { field: "lastname" },
       { field: "email" },
-      { title: "Phone" },
+      { field: "phoneNumber" },
       { field: "rights" }
     ]
 
-  const { data, loading } = useFetch(`/admin?page=${currentPage + 1}&pageSize=${rowsPerPage}`);
+  const { data, loading } = useFetch(`/admin/getAllSubAdmin/${currentPage}/${rowsPerPage}`);
   useEffect(() => {
     // Call your API here using the currentPage value
     // Update the state with the fetched data
