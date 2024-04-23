@@ -25,9 +25,15 @@ const Content = () => {
     },
     {
         id: 3,
-        title: 'Disclaimer',
+        title: 'Disclaimer for organizer',
         status: 'actve',
         _id:'disclaimer'
+    },
+    {
+        id: 3,
+        title: 'Disclaimer for Team',
+        status: 'actve',
+        _id:'teamDisclaimer'
     },
     {
         id: 4,

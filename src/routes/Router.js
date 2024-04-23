@@ -68,6 +68,8 @@ const Login = Loadable(lazy(() => import('../views/authentication/Login')));
 const ForgotPassword = Loadable(lazy(() => import('../views/authentication/ForgotPassword')));
 const ResetPassword = Loadable(lazy(() => import('../views/authentication/ResetPassword')));
 
+const Update = Loadable(lazy(() => import('../views/forceUpdate/Update')));
+
 
 // Define a PrivateRoute component
 const PrivateRoute = ({ element, path }) => {
@@ -143,6 +145,8 @@ const Router = [
         { path: '/scoreBoard', exact: true, element: <ScoreBoardlist /> },
         { path: '/scoreBoard/:id', exact: true, element: <MatchesList /> },
         { path: '/scoreBoardData/:id', exact: true, element: <ScoreBoard /> },
+
+        { path: '/update', exact: true, element: <Update /> },
 
       { path: '/icons', exact: true, element: <Icons /> },
       { path: '/ui/typography', exact: true, element: <TypographyPage /> },

@@ -8,6 +8,8 @@ import { IconH1 } from '@tabler/icons';
  import CustomModal from './CustomModal';
  import moment from 'moment';
 
+ import userDefaltImage from 'src/assets/images/profile/user.png';
+
 const CustomTable = ( data, loading) => {
   const CustomTablecontainer = useRef();
 
@@ -62,11 +64,11 @@ const CustomTable = ( data, loading) => {
                           if(fielditem.field==='profilePhoto'||fielditem.field==='imageUrl'){
                             return (
                               <TableCell>
-                                <img src={S3bucketUrl+item[fielditem.field]} style={{width:"60px",height:"60px"}}/>
+                                <img src={item[fielditem.field]?S3bucketUrl+item[fielditem.field]:userDefaltImage} style={{width:"60px",height:"60px"}}/>
                               </TableCell>
                             )
                           }
-                          else if(fielditem.field==='registrationDate' ||  fielditem.field==='date' || fielditem.field==='updatedAt'){
+                          else if(fielditem.field==='registrationDate' ||  fielditem.field==='date' || fielditem.field==='updatedAt' || fielditem.field==='createdAt'){
                             return (
                               <TableCell >
                                 {moment(item[fielditem.field]).format('YYYY-MM-DD  HH:mm')}

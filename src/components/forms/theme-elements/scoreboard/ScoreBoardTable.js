@@ -65,7 +65,7 @@ const ScoreBoardtable = (data, loading) => {
                         })
 
                       }
-                       console
+                    
                               <TableCell>
                                 <NavLink  to={item._id}>View </NavLink>
                               </TableCell>

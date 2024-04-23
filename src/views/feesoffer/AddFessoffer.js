@@ -15,8 +15,8 @@ const AddFessoffer = (action) => {
   
   
     const Formdata = [
-      { helperText: "Please Add Fees Here", name: "fess", type:"number" },
-      { helperText: "Please Add Offer Here", name: "offer",type:"number" },
+      { helperText: "Minimum Amount At Coupon Applicable", name: "fees", type:"number" },
+      { helperText: "Please Add Discount Here", name: "offer",type:"number" },
      
     ]
   

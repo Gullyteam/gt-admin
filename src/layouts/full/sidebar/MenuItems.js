@@ -114,12 +114,12 @@ const Menuitems = [
   //   icon: IconMoodHappy,
   //   href: '/icons',
   // },
-  // {
-  //   id: uniqueId(),
-  //   title: 'Sample Page',
-  //   icon: IconAperture,
-  //   href: '/sample-page',
-  // },
+  {
+    id: uniqueId(),
+    title: 'Settings',
+    icon: IconAperture,
+    href: '/update',
+  },
 ];
 
 export default Menuitems;

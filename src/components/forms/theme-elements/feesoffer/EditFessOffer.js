@@ -21,7 +21,7 @@ const EditFessOffer = (data) => {
 
   //Form Intial Value
   const intialvalue = {
-    fess: "",
+    fees: "",
     offer: "",
     
   }

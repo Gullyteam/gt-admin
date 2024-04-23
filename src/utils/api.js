@@ -3,12 +3,17 @@
 // base url of a api 
  const BASE_URL = 'http://localhost:5000';
 
+//  const BASE_URL = 'http://3.109.65.55:5000';
+
  //api token
  const Auth_TOKEN = localStorage.getItem('authToken');
 
  const headers={
     Authorization: "Bearer " + Auth_TOKEN,
  }
+
+
+ console.log(headers);
 
  const params={
     email: localStorage.getItem('email'),

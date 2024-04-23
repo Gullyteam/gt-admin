@@ -53,7 +53,6 @@ const OrganizerForm = (data) => {
     useEffect(() => {
         if (data?.data?.data) {
             setorganizer(data.data.data);
-          
         }
     }, [data]);
 
@@ -61,7 +60,7 @@ const OrganizerForm = (data) => {
     const editOrganizerData = async () => {
         addDataUsingApi(`/admin/updateTournamentById/${id}`, organizer)
             .then((res) => {
-                //navigate('/organizer');
+                navigate('/organizer');
             });
     }
 

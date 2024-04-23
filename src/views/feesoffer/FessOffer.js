@@ -6,6 +6,7 @@ import EditFessOffer from 'src/components/forms/theme-elements/feesoffer/EditFes
  import { useParams } from 'react-router-dom';
 //useFetchAnother
  import useFetchAnother from 'src/hooks/useFetchAnother';
+ import { addDataUsingApi } from 'src/utils/api';
 import { styled, Paper, FormGroup, FormControl, Grid } from '@mui/material';
 
 const FessOffer = (action) => {
@@ -17,8 +18,8 @@ const action_status= action?.action;
 const { data,loading }= useFetchAnother(`/admin/fessoffer/${id}`);
 
 const Formdata = [
-  { helperText: "Please Add Fees Here", name: "fess", type:"number" },
-  { helperText: "Please Add Offer Here", name: "offer",type:"number" },
+  { helperText: "Minimum Amount At Coupon Applicable", name: "fees", type:"number" },
+  { helperText: "Please Add Discount Here", name: "offer",type:"number" },
  
 ]
 

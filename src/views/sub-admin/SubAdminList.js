@@ -14,11 +14,12 @@ const SubAdmin = () => {
 
     //object for passing the Table header
     const tableTitle = [
+      {title:"Sr No."},
       { title: "FirstName" },
       { title: "LastName" },
       { title: "Email" },
       { title: "Phone" },
-      { title: "action" },
+      // { title: "action" },
       { title: "Options" }
     ]
 
@@ -28,7 +29,7 @@ const SubAdmin = () => {
       { field: "lastname" },
       { field: "email" },
       { field: "phoneNumber" },
-      { field: "rights" }
+      // { field: "rights" }
     ]
 
   const { data, loading } = useFetch(`/admin/getAllSubAdmin/${currentPage}/${rowsPerPage}`);

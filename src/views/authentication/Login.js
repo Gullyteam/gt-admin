@@ -28,6 +28,8 @@ const Login2 = () => {
       .then((res) => {
           if(res?.data?.status == true){
             const token = res?.data?.data?.token
+
+            console.log("daatat",res?.data?.data);
             //put the token in local Storage
             localStorage.setItem('authToken',token)
             localStorage.setItem('email',res?.data?.data?.email)

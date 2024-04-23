@@ -33,7 +33,7 @@ const ResetPassword = () => {
         toast.error("Passwords do not match");
         return;
       }else{
-        loginApi(`/admin/reset-password/?token=${token}`, logindata)
+        loginApi(`/admin/reset-password/${token}`, logindata)
         .then((res) => {
   
            if(res?.data['success'] == true ){

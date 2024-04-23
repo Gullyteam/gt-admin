@@ -6,7 +6,10 @@ import { IconArrowUpLeft } from '@tabler/icons';
 
 import DashboardCard from '../../../components/shared/DashboardCard';
 
-const YearlyBreakup = () => {
+const YearlyBreakup = (data) => {
+
+console.log("dashboard",data);
+
   // chart color
   const theme = useTheme();
   const primary = theme.palette.primary.main;
@@ -62,25 +65,25 @@ const YearlyBreakup = () => {
   const seriescolumnchart = [38, 40, 25];
 
   return (
-    <DashboardCard title="Yearly Breakup">
+    <DashboardCard title={`${data.title}`}>
       <Grid container spacing={3}>
         {/* column */}
         <Grid item xs={7} sm={7}>
           <Typography variant="h3" fontWeight="700">
-            $36,358
+          {`${data.count}`}
           </Typography>
           <Stack direction="row" spacing={1} mt={1} alignItems="center">
             <Avatar sx={{ bgcolor: successlight, width: 27, height: 27 }}>
               <IconArrowUpLeft width={20} color="#39B69A" />
             </Avatar>
-            <Typography variant="subtitle2" fontWeight="600">
+            {/* <Typography variant="subtitle2" fontWeight="600">
               +9%
             </Typography>
             <Typography variant="subtitle2" color="textSecondary">
               last year
-            </Typography>
+            </Typography> */}
           </Stack>
-          <Stack spacing={3} mt={5} direction="row">
+          {/* <Stack spacing={3} mt={5} direction="row">
             <Stack direction="row" spacing={1} alignItems="center">
               <Avatar
                 sx={{ width: 9, height: 9, bgcolor: primary, svg: { display: 'none' } }}
@@ -97,17 +100,17 @@ const YearlyBreakup = () => {
                 2023
               </Typography>
             </Stack>
-          </Stack>
+          </Stack> */}
         </Grid>
         {/* column */}
-        <Grid item xs={5} sm={5}>
+        {/* <Grid item xs={5} sm={5}>
           <Chart
             options={optionscolumnchart}
             series={seriescolumnchart}
             type="donut"
             height="150px"
           />
-        </Grid>
+        </Grid> */}
       </Grid>
     </DashboardCard>
   );
