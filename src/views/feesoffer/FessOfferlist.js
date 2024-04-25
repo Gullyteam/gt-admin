@@ -14,20 +14,22 @@ const FessOffer = () => {
   //usestate for the pagination table
   const [currentPage, setCurrentPage] = useState(1); // Initial page
 
+  console.log(currentPage, rowsPerPage)
+
     // fetch all users data from  
-    const { data,loading }= useFetchAnother(`/admin/fessoffer?page=${currentPage}&pageSize=${rowsPerPage}`);
+    const { data,loading }= useFetchAnother(`/admin/getCoupon/${currentPage}/${rowsPerPage}`);
 
 
-    const tableTitle =[{title:"Fees"},{title:"Offer"},{title:"FinalPrice"},{title:"Action"}]
+    const tableTitle =[{title:"Sr.No"},{title:"Minimum Amount"},{title:"Discount"},{title:"Type"},{title:"Created At"},{title:"Start Date "},{title:"End Date"},{title:"Action"}]
 
-    const tableBody =[{field:"fess"},{field:"offer"},{field:"finalPrice"}]
+    const tableBody =[{field:"minAmount"},{field:"discount"},{field:"type"},{field:"createdAt"},{field:"startDate"},{field:"endDate"}]
 
-    useEffect(() => {
-      // Call your API here using the currentPage value
-      // Update the state with the fetched data
-      // const { data, loading } = useFetch(`/admin`);
-      //console.log("hello world",currentPage);
-    }, [currentPage, data, loading]);
+    // useEffect(() => {
+    //   // Call your API here using the currentPage value
+    //   // Update the state with the fetched data
+    //   // const { data, loading } = useFetch(`/admin`);
+    //   //console.log("hello world",currentPage);
+    // }, [currentPage, data, loading]);
   
     const handlePageChange = (newPage) => {
       setCurrentPage(newPage);

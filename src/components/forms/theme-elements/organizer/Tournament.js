@@ -1,53 +1,58 @@
 import React, { useState } from 'react';
-import { DatePicker, TimePicker } from '@mui/lab';
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import { Container, Box, TextField, Button } from '@mui/material';
 
 const Tournament = () => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const [selectedTime, setSelectedTime] = useState(new Date());
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
 
-  const handleDateChange = (newDate) => {
-    setSelectedDate(newDate);
+  const handleStartDateChange = (event) => {
+    setStartDate(event.target.value);
   };
 
-  const handleTimeChange = (newTime) => {
-    setSelectedTime(newTime);
+  const handleEndDateChange = (event) => {
+    setEndDate(event.target.value);
   };
 
   const handleSubmit = () => {
-    console.log('Selected Date:', selectedDate);
-    console.log('Selected Time:', selectedTime);
-    // Handle the selected date and time as needed
+    console.log('Start Date:', startDate);
+    console.log('End Date:', endDate);
+    // Handle the start and end dates as needed
   };
 
   return (
-    <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <Container maxWidth="sm">
-        <Box mt={3}>
-          <DatePicker
-            label="Select Date"
-            value={selectedDate}
-            onChange={handleDateChange}
-            renderInput={(params) => <TextField {...params} variant="outlined" fullWidth />}
-          />
-        </Box>
-        <Box mt={3}>
-          <TimePicker
-            label="Select Time"
-            value={selectedTime}
-            onChange={handleTimeChange}
-            renderInput={(params) => <TextField {...params} variant="outlined" fullWidth />}
-          />
-        </Box>
-        <Box mt={3}>
-          <Button variant="contained" color="primary" onClick={handleSubmit}>
-            Submit
-          </Button>
-        </Box>
-      </Container>
-    </LocalizationProvider>
+    <Container maxWidth="sm">
+      <Box mt={3}>
+        <TextField
+          label="Start Date"
+          type="date"
+          value={startDate}
+          onChange={handleStartDateChange}
+          variant="outlined"
+          fullWidth
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+      </Box>
+      <Box mt={3}>
+        <TextField
+          label="End Date"
+          type="date"
+          value={endDate}
+          onChange={handleEndDateChange}
+          variant="outlined"
+          fullWidth
+          InputLabelProps={{
+            shrink: true,
+          }}
+        />
+      </Box>
+      <Box mt={3}>
+        <Button variant="contained" color="primary" onClick={handleSubmit}>
+          Submit
+        </Button>
+      </Box>
+    </Container>
   );
 };
 

@@ -15,7 +15,7 @@ const {id} = useParams();
 
 const action_status= action?.action;
 
-const { data,loading }= useFetchAnother(`/admin/fessoffer/${id}`);
+const { data,loading }= useFetchAnother(`/admin/getCouponById/${id}`);
 
 const Formdata = [
   { helperText: "Minimum Amount At Coupon Applicable", name: "fees", type:"number" },

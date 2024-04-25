@@ -27,7 +27,7 @@ const Organizer = (action) => {
     { helperText: 'Breakfast Charges', name: 'breakfastCharges', type: 'number' },
     { helperText: 'Fees', name: 'fees', type: 'text' },
     { helperText: 'gameType', name: 'gameType', type: 'text' },
-    { helperText: 'Latest Location', name: 'latestLocation', type: 'text' },
+    // { helperText: 'Latest Location', name: 'latestLocation', type: 'text' },
     { helperText: 'Match Type', name: 'matchType', type: 'text' },
     { helperText: 'Pitch Type', name: 'pitchType', type: 'text' },
 

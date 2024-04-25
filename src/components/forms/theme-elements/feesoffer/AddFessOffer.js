@@ -1,6 +1,7 @@
 import React from 'react';
 //import Usestate
 import { useState } from 'react';
+
 import {
   styled,
   Paper,
@@ -11,14 +12,14 @@ import {
   MenuItem,
   InputLabel,
   FormControl,
+  Container,
+  Box,
 } from '@mui/material';
 
 import { addDataUsingApi } from 'src/utils/api';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-import { DatePicker } from '@mui/lab';
 
 //Styling Of Item Component
 const Item = styled(Paper)(({ theme }) => ({
@@ -36,25 +37,36 @@ const AddFessOffer = (data) => {
 
   //Form Intial Value
   const intialvalue = {
+    couponName: "",
     fees: '',
     offer: '',
-    discountType:"Percentage"
+    discountType: 'Percentage',
+    startDate: '',
+    endDate: '',
   };
 
   const [statusvalue, setStatus] = React.useState('Percentage');
 
-  const [selectedDate, setSelectedDate] = useState(null);
-
   //UseState For store Form Data
   const [fessoffer, setfessoffer] = useState(intialvalue);
+
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
+
+  const handleStartDateChange = (event) => {
+    setStartDate(event.target.value);
+    setfessoffer({ ...fessoffer, [event.target.name]: event.target.value });
+  
+  };
+
+  const handleEndDateChange = (event) => {
+    setEndDate(event.target.value);
+    setfessoffer({ ...fessoffer, [event.target.name]: event.target.value });
+  };
 
   //For Data Insert in to Variable comming fromdata.
   const onValueChange = (e) => {
     setfessoffer({ ...fessoffer, [e.target.name]: e.target.value });
-  };
-
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
   };
 
   const handleChange = (event) => {
@@ -62,7 +74,6 @@ const AddFessOffer = (data) => {
     setfessoffer({ ...fessoffer, discountType: statusvalue });
   };
 
- 
   const addfessofferData = async () => {
     if (fessoffer.fess !== '' && fessoffer.offer !== '') {
       addDataUsingApi('/admin/addCoupon', fessoffer).then((res) => {
@@ -96,7 +107,8 @@ const AddFessOffer = (data) => {
           </Grid>
         );
       })}
-      <Grid item xs={6}>
+
+<Grid item xs={6}>
         <FormControl sx={{ m: 1, width: 500 }}>
           <InputLabel id="demo-simple-select-label">Status</InputLabel>
           <Select
@@ -109,12 +121,47 @@ const AddFessOffer = (data) => {
           >
             <MenuItem value={'Flat'}>Flat</MenuItem>
             <MenuItem value={'Percentage'}>Percentage</MenuItem>
-           
           </Select>
         </FormControl>
       </Grid>
 
+      <Grid item xs={6}>
+        <Box sx={{ m: 1 }}>
+          <TextField
+            label="Start Date"
+            type="date"
+            name="startDate"
+            value={startDate}
+            onChange={handleStartDateChange}
+            variant="outlined"
+            fullWidth
+            InputLabelProps={{
+              shrink: true,
+            }}
+          />
+        </Box>
+      </Grid>
+
       
+
+      <Grid item xs={6}>
+        <Box sx={{ m: 1, width: 510 }}>
+          <TextField
+            label="End Date"
+            type="date"
+            name="endDate"
+            value={endDate}
+            onChange={handleEndDateChange}
+            variant="outlined"
+            fullWidth
+            InputLabelProps={{
+              shrink: true,
+            }}
+          />
+        </Box>
+      </Grid>
+
+     
 
       <Grid item xs={12}>
         <Item>

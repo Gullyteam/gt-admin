@@ -68,10 +68,10 @@ const CustomTable = ( data, loading) => {
                               </TableCell>
                             )
                           }
-                          else if(fielditem.field==='registrationDate' ||  fielditem.field==='date' || fielditem.field==='updatedAt' || fielditem.field==='createdAt'){
+                          else if(fielditem.field==='registrationDate' ||  fielditem.field==='date' || fielditem.field==='updatedAt' || fielditem.field==='createdAt' || fielditem.field==='startDate'|| fielditem.field==='endDate'){
                             return (
                               <TableCell >
-                                {moment(item[fielditem.field]).format('YYYY-MM-DD  HH:mm')}
+                                {moment(item[fielditem.field]).format('YYYY-MM-DD ')}
                               </TableCell>
                             )
                           }
