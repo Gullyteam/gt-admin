@@ -1,58 +1,78 @@
-import React, { useState } from 'react';
-import { Container, Box, TextField, Button } from '@mui/material';
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+import moment from 'moment';
 
-const Tournament = () => {
-  const [startDate, setStartDate] = useState('');
-  const [endDate, setEndDate] = useState('');
+const useStyles = makeStyles((theme) => ({
+  root: {
+    maxWidth: '600px',
+    margin: 'auto',
+    padding: theme.spacing(4),
+  },
+}));
 
-  const handleStartDateChange = (event) => {
-    setStartDate(event.target.value);
-  };
-
-  const handleEndDateChange = (event) => {
-    setEndDate(event.target.value);
-  };
-
-  const handleSubmit = () => {
-    console.log('Start Date:', startDate);
-    console.log('End Date:', endDate);
-    // Handle the start and end dates as needed
-  };
-
+const Tournament = (data, loading) => {
   return (
-    <Container maxWidth="sm">
-      <Box mt={3}>
-        <TextField
-          label="Start Date"
-          type="date"
-          value={startDate}
-          onChange={handleStartDateChange}
-          variant="outlined"
-          fullWidth
-          InputLabelProps={{
-            shrink: true,
-          }}
-        />
-      </Box>
-      <Box mt={3}>
-        <TextField
-          label="End Date"
-          type="date"
-          value={endDate}
-          onChange={handleEndDateChange}
-          variant="outlined"
-          fullWidth
-          InputLabelProps={{
-            shrink: true,
-          }}
-        />
-      </Box>
-      <Box mt={3}>
-        <Button variant="contained" color="primary" onClick={handleSubmit}>
-          Submit
-        </Button>
-      </Box>
-    </Container>
+    <div>
+      <Typography variant="h5" align="center" gutterBottom>
+        Tournament : {data?.data?.data?.tournamentName}
+      </Typography>
+      {/* <Typography variant="body1" align="center" color="textSecondary" gutterBottom>
+      {data?.data?.data?.tournamentName}
+      </Typography> */}
+      <form>
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="h6" align="left" gutterBottom>
+              Transaction Status : {data?.data?.data?.status}
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+          <Typography variant="h6" align="left" gutterBottom>
+              Transaction Id : {data?.data?.data?.orderId}
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+          <Typography variant="h6" align="left" gutterBottom>
+              Transaction Create Date : {moment(data?.data?.data?.createdAt).format('YYYY-MM-DD  HH:mm')}
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+          <Typography variant="h6" align="left" gutterBottom>
+          Transaction Update Date :  {moment(data?.data?.data?.updatedAt).format('YYYY-MM-DD  HH:mm')}
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+          <Typography variant="h6" align="left" gutterBottom>
+              Transaction Status : {data?.data?.data?.status}
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+          <Typography variant="h6" align="left" gutterBottom>
+              Transaction Fees : {data?.data?.data?.amountWithoutCoupon}
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+          <Typography variant="h6" align="left" gutterBottom>
+             Coupon Use : {data?.data?.data?.coupon}
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+          <Typography variant="h6" align="left" gutterBottom>
+             Discount Amount : {data?.data?.data?.amount}
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+          <Typography variant="h6" align="left" gutterBottom>
+             User Email : {data?.data?.data?.email}
+            </Typography>
+          </Grid>
+          
+        </Grid>
+      </form>
+    </div>
   );
 };
 

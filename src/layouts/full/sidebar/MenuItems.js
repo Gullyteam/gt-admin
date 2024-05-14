@@ -88,6 +88,13 @@ const Menuitems = [
     icon: IconCopy,
     href: '/banner',
   },
+
+  {
+    id: uniqueId(),
+    title: 'TransactionHistory',
+    icon: IconCopy,
+    href: '/transaction',
+  },
   // {
   //   navlabel: true,
   //   subheader: 'Auth',

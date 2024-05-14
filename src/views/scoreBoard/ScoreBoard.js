@@ -16,9 +16,10 @@ const ScoreBoard = () => {
 
   useEffect(() => {
     // Replace 'http://your-socket-server-url' with the actual URL of your WebSocket server
-    const socket = io('http://13.233.149.139:5001');
+    //const socket = io('http://13.233.149.139:5001');
+    const socket = io('http://localhost/:3001');
 
-    const roomId = "66139d66d93bc338b2f4bee7";
+    const roomId = "123";
     // Emit an event to join the room
     socket.emit('joinRoom', roomId);
 

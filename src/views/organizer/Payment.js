@@ -17,15 +17,15 @@ const Tournament = (action) => {
     const action_status= action?.action;
     
     
-    const { data,loading }= useFetchAnother(`/admin/get-tournament/6576d8cf066ef891b19c97aa`);
+    const { data,loading }= useFetchAnother(`/admin/transactionById/66349c9c8eabfd5d5eaffb8f`);
     
     console.log(data);
     
     
       return (
-        <PageContainer title="Organizer ADD" description="this is Sample page">
+        <PageContainer title="Payment" description="this is Sample page">
     
-          <DashboardCard title="Organizer ADD" >
+          <DashboardCard title="Payment" >
     
             <FormGroup>
               <FormControl>

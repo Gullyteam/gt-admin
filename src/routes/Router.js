@@ -21,7 +21,7 @@ const Organizer = Loadable(lazy(() => import('../views/organizer/Organizer')))
 const AddOrganizer = Loadable(lazy(() => import('../views/organizer/AddOrganizer')))
 
 
-const Tournament = Loadable(lazy(() => import('../views/organizer/Tournament')))
+const Payment = Loadable(lazy(() => import('../views/organizer/Payment')))
 
 /* **** Sub Admin Pages***** */
 const SubAdminList = Loadable(lazy(() => import('../views/sub-admin/SubAdminList')))
@@ -71,6 +71,10 @@ const ResetPassword = Loadable(lazy(() => import('../views/authentication/ResetP
 const Update = Loadable(lazy(() => import('../views/forceUpdate/Update')));
 
 
+/* **** TransactionHistory ******/
+const TransactionList =Loadable(lazy(() => import('../views/transaction/TransactionList')))
+
+
 // Define a PrivateRoute component
 const PrivateRoute = ({ element, path }) => {
   return isAuthenticated() ? (
@@ -100,7 +104,7 @@ const Router = [
       { path: '/organizer/edit/:id', exact: true, element: <PrivateRoute path="/sample-page" element={<Organizer action={"edit"} />} />  },
       { path: '/organizer/delete/:id', exact: true, element: <PrivateRoute path="/sample-page" element={<Organizer action={"delete"} />} />  },
     
-      { path: '/tournament', exact: true, element: <Tournament /> },
+      // { path: '/tournament', exact: true, element: <Tournament /> },
 
       /* **** Sub Admin Pages***** */
       { path: '/subadmin', exact: true, element: <PrivateRoute path="/subadmin" element={<SubAdminList />} />  },
@@ -147,6 +151,9 @@ const Router = [
         { path: '/scoreBoardData/:id', exact: true, element: <ScoreBoard /> },
 
         { path: '/update', exact: true, element: <Update /> },
+
+        { path: '/transaction', exact: true, element: <TransactionList /> },
+        { path: '/payment/:id', exact: true, element: <Payment /> },
 
       { path: '/icons', exact: true, element: <Icons /> },
       { path: '/ui/typography', exact: true, element: <TypographyPage /> },
