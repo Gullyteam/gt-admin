@@ -1,0 +1,128 @@
+{
+  "sports": [
+    {
+      "id": 1,
+      "sportname": "cricket",
+      "sporticon": "cricket1"
+    },
+    {
+      "sportname": "football",
+      "sporticon": "football",
+      "id": 2
+    },
+    {
+      "sportname": "hockey",
+      "sporticon": "C:\\fakepath\\kgky4wf6.png",
+      "id": 3
+    },
+    {
+      "sportname": "basketball",
+      "sporticon": "C:\\fakepath\\kgky4wf6.png",
+      "id": 4
+    },
+    {
+      "sportname": "basketball",
+      "sporticon": "C:\\fakepath\\kgky4wf6.png",
+      "id": 5
+    },
+    {
+      "sportname": "tennis",
+      "sporticon": "C:\\fakepath\\leaf-1001679_1920.jpg",
+      "id": 6
+    },
+    {
+      "sportname": "hockey",
+      "sporticon": "C:\\fakepath\\kgky4wf6.png",
+      "id": 7
+    },
+    {
+      "sportname": "hello1",
+      "sporticon": "C:\\fakepath\\HD-wallpaper-windows-11-logo-2021-ultra-windows-windows-11-microsoft.jpg",
+      "id": 8
+    },
+    {
+      "sportname": "hello2",
+      "sporticon": "C:\\fakepath\\kgky4wf6.png",
+      "id": 9
+    }
+  ],
+  "organizer": [
+    {
+      "id": 1,
+      "name": "Shani",
+      "contact": "7983508346",
+      "email": 1,
+      "location": "cricket",
+      "game_name": "cricket1",
+      "tournament_name": 1,
+      "tournament_location": "cricket",
+      "tournament_fees": "cricket1"
+    },
+    {
+      "name": "Nikhil",
+      "contact": "9527178690",
+      "email": "nikhilghagre123@gmail.com",
+      "location": "Mumbai",
+      "game_name": "Cricket",
+      "tournament_name": "Cricket101",
+      "tournament_location": "Nagpur",
+      "tournament_fees": "1001",
+      "id": 2
+    },
+    {
+      "name": "Omkar",
+      "contact": "1324556666",
+      "email": "omkar@gmail.com",
+      "location": "Mumbai",
+      "game_name": "Cricket",
+      "tournament_name": "Cricket1",
+      "tournament_location": "Nagpur",
+      "tournament_fees": "101",
+      "id": 3
+    },
+    {
+      "name": "Bhaves",
+      "contact": "9527178690",
+      "email": "Bhavesh01@gmail.com",
+      "location": "Mumbai",
+      "game_name": "cricket",
+      "tournament_name": "cricket02",
+      "tournament_location": "Nagpur",
+      "tournament_fees": "100",
+      "id": 4
+    },
+    {
+      "name": "test",
+      "contact": "12334444",
+      "email": "test@gmail.com",
+      "location": "test1",
+      "game_name": "cricket",
+      "tournament_name": "cricket1",
+      "tournament_location": "nagpur",
+      "tournament_fees": "100",
+      "id": 5
+    },
+    {
+      "name": "test223",
+      "contact": "1234568829",
+      "email": "test2@gmail.com",
+      "location": "Mumbai",
+      "game_name": "Football",
+      "tournament_name": "Football1",
+      "tournament_location": "Mumbai",
+      "tournament_fees": "102",
+      "id": 6
+    },
+    {
+      "name": "tt",
+      "contact": "56",
+      "email": "tt",
+      "location": "tt",
+      "game_name": "",
+      "tournament_name": "tt",
+      "tournament_location": "tt",
+      "tournament_fees": "",
+      "id": 7
+    }
+  ]
+}

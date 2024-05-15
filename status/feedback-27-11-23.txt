@@ -1,0 +1,23 @@
+feedback on gully team //27-11-2023
+
+		replace modernizer name , logoto Gully team, any unwanted button. --Done
+
+		-Users
+			1. ban users , inactive users.
+			2. table title alignment,add user registration date, is orgnizer or not,team Id,User Id,location.
+			
+		- SubAdmin
+			1. replace delete with inactive.
+			
+		-Notification
+			1. notification usecase has to be dicussed.
+			
+		-Banner 
+			1.banned should be added , dicuss and implemente.	
+
+		-Reports
+			1.financial report.
+			2.
+	
+	
+
