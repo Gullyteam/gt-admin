@@ -20,7 +20,7 @@ const OrganizerList = Loadable(lazy(() => import('../views/organizer/OrganizerLi
 const Organizer = Loadable(lazy(() => import('../views/organizer/Organizer')))
 const AddOrganizer = Loadable(lazy(() => import('../views/organizer/AddOrganizer')))
 
-
+/* **** Payement Pages***** */
 const Payment = Loadable(lazy(() => import('../views/organizer/Payment')))
 
 /* **** Sub Admin Pages***** */
