@@ -95,6 +95,12 @@ const Menuitems = [
     icon: IconCopy,
     href: '/transaction',
   },
+  {
+    id: uniqueId(),
+    title: 'EntryFees',
+    icon: IconAB2 ,
+    href: '/EntryFees',
+  },
   // {
   //   navlabel: true,
   //   subheader: 'Auth',

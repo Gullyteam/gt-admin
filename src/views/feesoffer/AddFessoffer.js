@@ -18,6 +18,9 @@ const AddFessoffer = (action) => {
       { helperText: "Coupon Name", name: "couponName", type:"string" },
       { helperText: "Minimum Amount At Coupon Applicable", name: "fees", type:"number" },
       { helperText: "Please Add Discount Here", name: "offer",type:"number" },
+      { helperText: "Title", name: "title",type:"string" },
+      { helperText: "Description", name: "description",type:"string" },
+     
      
     ]
   

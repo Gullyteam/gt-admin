@@ -40,6 +40,11 @@ const FeesOffer = Loadable(lazy(() => import('../views/feesoffer/FessOfferlist')
 const AddFeesOffer = Loadable(lazy(() => import('../views/feesoffer/AddFessoffer')))
 const EditFeesOffer = Loadable(lazy(() => import('../views/feesoffer/FessOffer')))
 
+/* **** EntryFees Pages***** */
+const EntryFees = Loadable(lazy(() => import('../views/entryfees/EntryFeeslist')))
+const AddEntryFees = Loadable(lazy(() => import('../views/entryfees/AddEntryfees')))
+const EditEntryFees = Loadable(lazy(() => import('../views/entryfees/EntryFees')))
+
 /* **** Fess and Offer Pages***** */
 const HelpDesk =Loadable(lazy(() => import('../views/helpdesk/Helpdesklist')))
 const EditHelpDesk =Loadable(lazy(() => import('../views/helpdesk/HelpDesk')))
@@ -127,6 +132,12 @@ const Router = [
       { path: '/fessoffer/view/:id', exact: true, element: <EditFeesOffer action={"view"}/> },
       { path: '/fessoffer/edit/:id', exact: true, element: <EditFeesOffer action={"edit"}/> },
       // { path: '/fessoffer/delete/:id', exact: true, element: <FeesOffer /> },
+
+      /* **** EntryFees Pages***** */
+      { path: '/entryfees', exact: true, element: <EntryFees /> },
+      { path: '/entryfees/add', exact: true, element: <AddEntryFees /> },
+      { path: '/entryfees/view/:id', exact: true, element: <EditEntryFees action={"view"}/> },
+      { path: '/entryfees/edit/:id', exact: true, element: <EditEntryFees action={"edit"}/> },
 
        /* **** Helpdesk Pages***** */
        { path: '/helpdesk', exact: true, element: <HelpDesk /> },

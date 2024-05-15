@@ -35,6 +35,8 @@ const EditFessOffer = (data) => {
     couponName: '',
     minAmount: '',
     discount: '',
+    title:'',
+    description:'',
     type: 'Percentage',
     startDate: '',
     endDate: '',
@@ -114,6 +116,42 @@ const EditFessOffer = (data) => {
             label="Discount"
             helperText="Discount"
             name="discount"
+            onChange={(e) => onValueChange(e)}
+            // error={!organizer[formitem?.name]}
+          />
+        </Item>
+      </Grid>
+
+      <Grid item xs={6}>
+        <Item>
+          <TextField
+            key="title"
+            required
+            fullWidth
+            id="outlined-required"
+            type="string"
+            value={fessoffer.title}
+            label="Title"
+            helperText="Title"
+            name="title"
+            onChange={(e) => onValueChange(e)}
+            // error={!organizer[formitem?.name]}
+          />
+        </Item>
+      </Grid>
+
+      <Grid item xs={6}>
+        <Item>
+          <TextField
+            key="description"
+            required
+            fullWidth
+            id="outlined-required"
+            type="string"
+            value={fessoffer.description}
+            label="Description"
+            helperText="Description"
+            name="description"
             onChange={(e) => onValueChange(e)}
             // error={!organizer[formitem?.name]}
           />

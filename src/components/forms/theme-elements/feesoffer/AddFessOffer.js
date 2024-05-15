@@ -40,6 +40,8 @@ const AddFessOffer = (data) => {
     couponName: "",
     fees: '',
     offer: '',
+    title:"",
+    description:"",
     discountType: 'Percentage',
     startDate: '',
     endDate: '',
