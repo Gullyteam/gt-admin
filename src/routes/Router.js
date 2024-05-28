@@ -22,6 +22,9 @@ const AddOrganizer = Loadable(lazy(() => import('../views/organizer/AddOrganizer
 
 /* **** Payement Pages***** */
 const Payment = Loadable(lazy(() => import('../views/organizer/Payment')))
+const Tournament = Loadable(lazy(() => import('../views/organizer/Tournament')))
+
+
 
 /* **** Sub Admin Pages***** */
 const SubAdminList = Loadable(lazy(() => import('../views/sub-admin/SubAdminList')))
@@ -165,6 +168,7 @@ const Router = [
 
         { path: '/transaction', exact: true, element: <TransactionList /> },
         { path: '/payment/:id', exact: true, element: <Payment /> },
+        { path: '/tournament/:id', exact: true, element: <Tournament /> },
 
       { path: '/icons', exact: true, element: <Icons /> },
       { path: '/ui/typography', exact: true, element: <TypographyPage /> },

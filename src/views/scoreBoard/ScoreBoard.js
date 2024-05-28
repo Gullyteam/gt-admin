@@ -16,10 +16,10 @@ const ScoreBoard = () => {
 
   useEffect(() => {
     // Replace 'http://your-socket-server-url' with the actual URL of your WebSocket server
-    //const socket = io('http://13.233.149.139:5001');
+    const socket = io('http://13.233.149.139:5001');
     
     // Connect to WebSocket server
-    const socket = io('http://localhost:3001');
+    //const socket = io('http://localhost:3001');
 
     
 

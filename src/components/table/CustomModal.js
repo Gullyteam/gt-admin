@@ -32,19 +32,19 @@ const CustomModal = (data) => {
 
     let backgroundColor, textColor, borderRadius;
 
-  if (data.status === 'ban') {
-    backgroundColor = '#d41717';
-  } else if (data.status === 'active') {
-    backgroundColor = '#59ce59';
-  } else if (data.status === 'inactive') {
-    backgroundColor = '#ff661a';
-  }
+    if (data.status === 'ban') {
+        backgroundColor = '#d41717';
+    } else if (data.status === 'active') {
+        backgroundColor = '#59ce59';
+    } else if (data.status === 'inactive') {
+        backgroundColor = '#ff661a';
+    }
 
-  const buttonStyle = {
-    color: 'white',
-    borderRadius:'10px',
-    backgroundColor,
-  };
+    const buttonStyle = {
+        color: 'white',
+        borderRadius:'10px',
+        backgroundColor,
+    };
 
     const navigate = useNavigate();
 
@@ -65,29 +65,36 @@ const CustomModal = (data) => {
     // Function to handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        // Check if the action is 'ban' and duration is not selected
+        if (action === 'ban' && !duration) {
+            alert('Please select a duration.');
+            return; // Prevent form submission
+        }
+
         const userAction={
             action: action,
             duration: duration
         }
         actionUser(userAction);
-        
+
     };
 
     const sendDataToParent = () => {
         const Data = 'Data from CustomModel';
         data.onData(Data); // Calling the callback function to send data to parent
-      };
+    };
 
- 
+
     const actionUser = async (userAction) => {
         console.log(userAction)
         addDataUsingApi(`/admin/editUserStatus/${data.id}`, userAction)
-                .then((res) => {
-                    console.log("hello:::",res.data)
-                    setOpen(false)
-                    
-                });
-                navigate('/users');
+            .then((res) => {
+                console.log("hello:::",res.data)
+                setOpen(false)
+
+            });
+        navigate('/users');
     }
 
 
@@ -145,7 +152,7 @@ const CustomModal = (data) => {
                             )
                         }
                           <Item ><Button variant="contained" type="submit">Submit</Button></Item>
-                         
+
                           {/* <button onClick={sendDataToParent}>Send Data to Users</button> */}
                     </Box>
                 </form>
@@ -154,4 +161,4 @@ const CustomModal = (data) => {
     );
 }
 
-export default CustomModal
+export default CustomModal;

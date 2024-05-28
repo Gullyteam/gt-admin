@@ -5,7 +5,7 @@ import DashboardCard from '../../components/shared/DashboardCard';
  import { useState,useEffect} from 'react';
 import useFetchAnother from 'src/hooks/useFetchAnother';
 import CustomTable from 'src/components/table/CustomTable';
-import FessOfferComponent from 'src/components/forms/theme-elements/feesoffer/FessOfferComponent'
+//import FessOfferComponent from 'src/components/forms/theme-elements/feesoffer/FessOfferComponent'
 
 const EntryFees = () => {
   const rowsPerPage=process.env.REACT_APP_ROWS_PER_PAGE;

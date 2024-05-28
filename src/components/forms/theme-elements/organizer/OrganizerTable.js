@@ -53,6 +53,13 @@ const OrganizerTable = (data, loading) => {
                                 <NavLink  to={`/payment/${item?._id}`}>Payment</NavLink>
                               </TableCell>
                             )
+                          }else if (fielditem.field === 'tournamentView') {
+                            return (
+                                <TableCell key={fielditem.field}>
+                                    <NavLink to={`/tournament/${item?._id}`}>Tournament List</NavLink>
+                                </TableCell>
+                            )
+                        
                           }else if (fielditem.field === 'tournamentStartDateTime' || fielditem.field === 'tournamentEndDateTime') {
                             return (
                               <TableCell>

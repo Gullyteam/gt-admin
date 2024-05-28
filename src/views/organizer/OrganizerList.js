@@ -38,9 +38,9 @@ const OrganizerList = () => {
     };
 
 
-    const tableTitle =[{title:"Sr.No"},{title:"Name"},{title:"Contact"},{title:"Email"},{title:"Game Type"},{title:"Tournament Name"},{title:"StartDate_Time"},{title:"EndDate_Time"},{title:"Tournament Location"},{title:"Tournament Fees"},{title:"payment"},{title:"Action"}]
+    const tableTitle =[{title:"Sr.No"},{title:"Name"},{title:"Contact"},{title:"Email"},{title:"Game Type"},{title:"Tournament Name"},{title:"StartDate_Time"},{title:"EndDate_Time"},{title:"Tournament Location"},{title:"Tournament Fees"},{title:"payment"},{title:"Tournament History"},{title:"Action"}]
 
-    const tableBody =[{field:"fullName"},{field:"phoneNumber"},{field:"email"},{field:"gameType"},{field:"tournamentName"},{field:"tournamentStartDateTime"},{field:"tournamentEndDateTime"},{field:"stadiumAddress"},{field:"fees"}, {field:"paymentView"}]
+    const tableBody =[{field:"fullName"},{field:"phoneNumber"},{field:"email"},{field:"gameType"},{field:"tournamentName"},{field:"tournamentStartDateTime"},{field:"tournamentEndDateTime"},{field:"stadiumAddress"},{field:"fees"}, {field:"paymentView"}, {field:"tournamentView"}]
   return (
     
     <PageContainer title="Organizer List" description="this is Sample page">
